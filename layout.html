@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="shortcut icon" href="static/Logo-menor.ico" />
+
+        {% block head %}
+        {% endblock %}
+
+        <style>
+
+            body {
+              margin: 0;
+              font-family: Helvetica, sans-serif;
+              background-color: #ededed;
+            }
+
+            a {
+              color: #309292;
+              text-decoration: none;
+            }
+
+            a:hover {
+              color: #246d6d;
+            }
+
+            .topnav {
+              overflow: hidden;
+              background-color: white;
+              position: fixed;
+              width: 100%;
+              z-index: 100;
+              box-shadow: 1px 1px 55px rgba(0, 0, 0, 0.3);
+            }
+
+            .topnav a {
+              float: left;
+              display: block;
+              color: #309292;
+              text-align: center;
+              padding: 14px 16px;
+              text-decoration: none;
+              font-size: 14px;
+            }
+
+            .topnav a:hover {
+              background-color: #309292;
+              color: white;
+            }
+
+            .topnav a:first-child {
+              margin-left: 12%;
+            }
+
+            .active {
+              background-color: #4CAF50;
+              color: white;
+            }
+
+            .topnav .icon {
+              display: none;
+            }
+
+            @media screen and (max-width: 740px) {
+              .topnav a:not(:first-child) {display: none;}
+              .topnav a.icon {
+                float: right;
+                display: block;
+              }
+            }
+
+            @media screen and (max-width: 740px) {
+              .topnav.responsive {
+                position: fixed;
+                z-index: 5;
+              }
+              .topnav.responsive .icon {
+                position: absolute;
+                right: 0;
+                top: 0;
+              }
+              .topnav.responsive a {
+                float: none;
+                display: block;
+                text-align: left;
+              }
+
+              .topnav a:first-child {
+                margin-left: 0;
+              }
+            }
+
+            /* Pagina Inicial */
+
+            .fundo {
+              width: 100%;
+              max-height: 600px;
+              z-index: -1;
+            }
+
+            .div-titulo{
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 450px;
+              background-position: center;
+              background-repeat: no-repeat;
+              background-image: url('static/FundoCapa.jpg');
+            }
+
+            .subtitulo {
+              position: relative;
+              text-align: center;
+
+              color: white;
+              font-size: 16px;
+              font-weight: bold;
+
+              margin-left: auto;
+              margin-right: auto;
+              margin-top: -150px;
+            }
+
+            .logo {
+              position: relative;
+              text-align: center;
+
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+
+              width: 440px;
+            }
+
+            @media screen and (max-width: 740px) {
+
+              .logo {
+                width: 350px;
+                padding-top: 50px;
+              }
+
+              .subtitulo {
+                line-height: 80px;
+              }
+            }
+
+            /* Quem somos */
+            .quemSomos {
+              background: white;
+              padding: 10%;
+              display:flex;
+              align-items:center;
+              flex-direction: row;
+            }
+
+            .doutores {
+              width: 50%;
+              display: block;
+              max-width: 300px;
+            }
+
+            .quemSomosSinopse {
+              display: block;
+              padding: 5%;
+              text-align: justify;
+            }
+
+            .quemSomosSub{
+              font-size: 24px;
+            }
+
+            .quemSomosSub:hover{
+              color: #309292;
+            }
+
+            @media screen and (max-width: 740px) {
+
+              .quemSomos {
+                display: block;
+                align-items: center;
+              }
+
+              .doutores {
+                width: 100%;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+              }
+            }
+
+          /* Acoes */
+
+          .acoes {
+
+            margin: 0 12%;
+          }
+
+          .ap_idade, .ap_especial, .aux_doenca{
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+
+            padding: 10%;
+            background-color: rgba(48, 146, 146, 0.8);
+          }
+/*
+          .ap_idade {
+            background-image: url('static/vo.jpg');
+            background-position: center;
+          }
+
+          .ap_especial {
+            background-image: url('static/esp.jpg');
+            background-position: center;
+          }
+
+          .aux_doenca {
+            background-image: url('static/doen.jpg');
+            background-position: center;
+          }
+*/
+
+          .ap_idade:hover, .ap_especial:hover, .aux_doenca:hover{
+            background-color: rgba(36, 109, 109, 0.8);
+          }
+
+          @media screen and (max-width: 740px){
+
+            .acoes {
+              margin: 0 5%;
+            }
+          }
+
+          /* Fale conosco */
+          .fale {
+            padding: 5% 10%;
+            background-color: white;
+            display:flex;
+            align-items:center;
+            flex-direction: row;
+          }
+
+          .titulo_fale {
+
+            color: #309292;
+            font-size: 24px;
+            font-weight: bold;
+          }
+
+          .mapouter{
+            position:relative;
+            text-align:right;
+            height: 300px;
+            width: 50%;
+          }
+
+          .gmap_canvas {
+            overflow:hidden;
+            background:none!important;
+            height:300px;
+            width:100%;
+          }
+
+          @media screen and (max-width: 740px){
+
+            .fale {
+                display: block;
+                align-items: center;
+            }
+
+            .mapouter{
+              height: 400px;
+              width: 100%;
+            }
+
+            .gmap_canvas {
+              height:400px;
+              width:100%;
+            }
+          }
+
+          /* PÁGINA - QUEM SOMOS */
+
+            /* Style the video: 100% width and height to cover the entire window */
+            #myVideo {
+              position: fixed;
+              right: 0;
+              bottom: 0;
+              min-width: 100%;
+              min-height: 100%;
+            }
+
+            /* Add some content at the bottom of the video/page */
+            .content {
+              position: fixed;
+              bottom: 0;
+              background: rgba(1, 1, 1, 0.5);
+              color: #f1f1f1;
+              width: 100%;
+              padding: 20px;
+            }
+
+            /* Style the button used to pause/play the video */
+            #myBtn {
+              width: 200px;
+              font-size: 18px;
+              padding: 10px;
+              margin-left: 12%;
+              border: none;
+              background: #309292;
+              color: #fff;
+              cursor: pointer;
+            }
+
+            #myBtn:hover {
+              background: white;
+              color: #309292;
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        <div class="topnav" id="myTopnav">
+          <a href="#home">ADias</a>
+          <a href="#quemsomos">Quem Somos</a>
+          <a href="#acoes">Ações</a>
+          <a href="#contact">Fale Conosco</a>
+          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+          </a>
+        </div>
+
+        <script>
+            function myFunction() {
+              var x = document.getElementById("myTopnav");
+              if (x.className === "topnav") {
+                x.className += " responsive";
+              } else {
+                x.className = "topnav";
+              }
+            }
+        </script>
+
+        {% block body %}
+        {% endblock %}
+
+    </body>
+</html>
